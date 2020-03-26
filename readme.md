@@ -1,6 +1,7 @@
-<<<<<<< HEAD
+
+
 <h1>Portfolio-Project</h1>
-<p>Based on lightweight startup HTML5 Gulp template.</p>
+<p>Based on lightweight startup HTML5 Gulp template by <a href="http://webdesign-master.ru" target="_blank">WebDesign Master</a> </p>
 
 
 <h2>Main Gulp tasks:</h2>
@@ -50,7 +51,6 @@
 	<li><strong>800</strong> - Black or Extra Bold or Heavy</li>
 	<li><strong>900</strong> - Extra Black or Fat or Ultra Blac</li>
 </ul>
-=======
-<h1><strong>OptimizedHTML 4:</strong> <br>Startup HTML template based on Gulp & Bootstrap 4</h1>
-<p>Author: <a href="http://webdesign-master.ru" target="_blank">WebDesign Master</a></p>
->>>>>>> 385c7344bbfafe95d60587a6ca8415c617bcd750
+
+
+
