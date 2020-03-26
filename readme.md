@@ -1,45 +1,51 @@
-<h1><strong>OptimizedHTML 4:</strong> <br>Startup HTML template based on Gulp & Bootstrap 4</h1>
+<h1>Portfolio-Project</h1>
+<p>Based on lightweight startup HTML5 Gulp template.</p>
 
-<p>
-	<img src="https://raw.githubusercontent.com/agragregra/OptimizedHTML-4/master/app/img/_src/preview.jpg" alt="Start HTML Template">
-</p>
 
-<p>Author: <a href="http://webdesign-master.ru" target="_blank">WebDesign Master</a></p>
-
-<p>OptimizedHTML is all-inclusive start HTML5 template with Bootstrap 4 (grid & reboot), Gulp, Sass, Browsersync, Autoprefixer, Clean-CSS, Uglify, Rsync and Bower (libs path) support. The template contains a <strong>.htaccess</strong> file with caching rules for web server.</p>
-
-<p><strong>OptimizedHTML 4</strong> Start Template uses the best practices of web development.</p>
-
-<p>Cross-browser compatibility: IE9+.</p>
-
-<p>The template uses a Sass with <strong>Sass</strong> or <strong>Scss</strong> syntax (optional).</p>
-
-<h2>How to use OptimizedHTML</h2>
-
-<ol>
-	<li><a href="https://github.com/agragregra/OptimizedHTML-4/archive/master.zip">Download</a> <strong>OptimizedHTML 4</strong> from GitHub;</li>
-	<li>Install Node Modules: <strong>npm i</strong>;</li>
-	<li>Run the template: <strong>gulp</strong>.</li>
-</ol>
-
-<h2>Gulp tasks:</h2>
+<h2>Main Gulp tasks:</h2>
 
 <ul>
-	<li><strong>gulp</strong>: run default gulp task (sass, js, watch, browserSync) for web development;</li>
-	<li><strong>rsync</strong>: project deployment on the server from <strong>dist</strong> folder via <strong>RSYNC</strong>;</li>
+	<li><strong title="gulp task"><em>gulp</em></strong>: run default gulp task (images, styles, scripts, browsersync, startwatch)</li>
+	<li><strong title="cleanimg task"><em>cleanimg</em></strong>: Clean all compressed images</li>
+	<li><strong title="styles, scripts, images, assets tasks"><em>styles, scripts, images, assets</em></strong>: build assets (css, js, images or all)</li>
+	<li><strong title="rsync task"><em>rsync</em></strong>: project deployment via <strong>RSYNC</strong></li>
 </ul>
 
-<h2>Rules for working with the starting HTML template</h2>
+<h2>Basic rules</h2>
 
 <ol>
-	<li>All HTML files should have similar initial content as in <strong>app/index.html</strong>;</li>
-	<li><strong>Template Basic Images Start</strong> comment in app/index.html - all your custom template basic images (og:image for social networking, favicons for a variety of devices);</li>
-	<li><strong>Custom Browsers Color Start</strong> comment in app/index.html: set the color of the browser head on a variety of devices;</li>
-	<li><strong>Custom HTML</strong> comment in app/index.html - all your custom HTML;</li>
-	<li>For installing new jQuery library, just run the command "<strong>bower i plugin-name</strong>" in the terminal. Libraries are automatically placed in the folder <strong>app/libs</strong>. Bower must be installed in the system (npm i -g bower). Then place all jQuery libraries paths in the <strong>'libs'</strong> task (gulpfile.js);</li>
-	<li>All custom JS located in <strong>app/js/common.js</strong>;</li>
-	<li>All Sass vars placed in <strong>app/sass/_vars.sass | app/scss/_vars.scss</strong>;</li>
-	<li>All Bootstrap media queries placed in <strong>app/sass/_media.sass | app/scss/_media.scss</strong>;</li>
-	<li>All libraries CSS styles placed in <strong>app/sass/_libs.sass | app/scss/_libs.scss</strong>;</li>
-	<li>Rename <strong>ht.access</strong> to <strong>.htaccess</strong> before place it in your web server. This file contain rules for files caching on web server.</li>
+	<li>All custom <strong title="scripts task"><em>scripts</em></strong> located in <strong>app/js/app.js</strong></li>
+	<li>All custom <strong title="styles task"><em>styles</em></strong> located in <strong>app/{preprocessor}/main.sass|scss|less|styl</strong></li>
+	<li>All preprocessor <strong>configs</strong> placed in <strong>app/{preprocessor}/_config.sass|scss|less|styl</strong></li>
+	<li>You can <strong>delete folders</strong> of other preprocessors before work.</li>
+	<li>All <strong>images</strong> sources placed in <strong>app/images/src/</strong> folder.</li>
 </ol>
+
+<h2>Included features</h2>
+
+<ol>
+	<li><a href="https://getbootstrap.com/docs/4.0/content/reboot/">bootstrap-reboot</a> - Bootstrap Reboot CSS collection</li>
+	<li>
+		<a href="https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints">_breakpoints.scss</a> - Bootstrap Breakpoints mixin (available only for sass and scss)</li>
+		<li><a href="https://getbootstrap.com/docs/4.0/layout/grid/">bootstrap-grid</a> (optional) - Bootstrap Grid collection</li>
+</ol>
+
+<h2>Caching</h2>
+
+<p>Rename <strong>ht.access</strong> to <strong>.htaccess</strong> before place it in your web server. This file contain rules for htaccess resources caching.</p>
+
+<h2>Helpers</h2>
+
+<h3>font-weight helper</h3>
+
+<ul>
+	<li><strong>100</strong> - Extra Light or Ultra Light</li>
+	<li><strong>200</strong> - Light or Thin</li>
+	<li><strong>300</strong> - Book or Demi</li>
+	<li><strong>400</strong> - Regular or Normal</li>
+	<li><strong>500</strong> - Medium</li>
+	<li><strong>600</strong> - Semibold or Demibold</li>
+	<li><strong>700</strong> - Bold</li>
+	<li><strong>800</strong> - Black or Extra Bold or Heavy</li>
+	<li><strong>900</strong> - Extra Black or Fat or Ultra Blac</li>
+</ul>
