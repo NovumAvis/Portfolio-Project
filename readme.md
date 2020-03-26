@@ -1,7 +1,7 @@
 
 
 <h1>Portfolio-Project</h1>
-<p>Based on lightweight startup HTML5 Gulp template by <a href="http://webdesign-master.ru" target="_blank">WebDesign Master</a> </p>
+<p>Based on lightweight startup Gulp template by <a href="http://webdesign-master.ru" target="_blank">WebDesign Master</a> </p>
 
 
 <h2>Main Gulp tasks:</h2>
