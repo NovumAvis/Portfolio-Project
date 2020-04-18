@@ -2,3 +2,375 @@
 
 // CUSTOM USER STYLES & IMPORTS
 
+#instructions 
+	position: absolute
+	color: #fff
+	bottom: 0
+	padding-bottom: 6px
+	font-family: sans-serif
+	width: 100%
+	text-align: center
+	pointer-events: none
+
+
+
+body
+	background-color: #fff
+	height: 100%
+	overflow: hidden
+	.author-box
+		position: fixed
+		z-index: 999
+		top: 50%
+		.author-wrapper
+			height: auto
+			width: auto
+			position: relative
+			.authorlink
+				font-size: 12px
+				text-transform: uppercase
+				text-decoration: none
+				letter-spacing: 0.15em
+				background-color: #000
+				color: #F2F3F1
+				font-family: $avenir
+				white-space: nowrap
+				transition: all .2s ease
+				padding: 18px 20px
+				&:after
+					background: none repeat scroll 0 0 transparent
+					bottom: 0
+					content: ""
+					display: block
+					height: 1px
+					left: 50%
+					position: absolute
+					background: #F2F3F1
+					transition: width 0.3s ease 0s, left 0.3s ease 0s
+					width: 0
+				&:hover:after
+					width: 80%
+					left: 10%
+	.header
+		position: fixed
+    left: 0
+    top: 0
+		height: 100px
+		width: 100%
+		display: flex
+		align-items: center
+		padding: 0 50px
+		z-index: 20
+		.logo
+			img
+				height: auto
+				width: 120px
+		.menu
+			margin: -12.5px -12.5px 0 auto
+			.menuWrapper
+				.navigation
+					vertical-align: baseline
+					.navLink
+						text-decoration: none
+						outline: 0
+						padding: 35px 12.5px
+						font-size: 14px
+						color: #707070
+						-webkit-transition: all .15s ease-out
+						transition: all .15s ease-out
+					.navLink:hover
+						color: #1D1D1D
+					.navLink.active
+						font-family: $avenir
+	.OverlayWrapper
+		.mainPage
+			.social
+				position: fixed
+				display: flex
+				flex-direction: column
+				//left: 40px
+				bottom: 0
+				z-index: 11
+				.socialLink
+					width: 30px
+					padding-bottom: 20px
+					display: flex
+					align-items: center
+					justify-content: center
+					img
+						max-height: 14px
+					&:nth-last-child(1)
+						padding-bottom: 55px
+			.categories
+				width: calc(100% - 240px)
+				margin-left: auto
+				display: flex
+				flex-wrap: wrap
+				position: relative
+				height: 100vh
+				.wallpapers
+					overflow: hidden
+					position: absolute
+					left: 0
+					top: 0
+					width: 100%
+					height: 100%
+					z-index: 9
+					img
+						object-fit: cover
+						position: absolute
+						width: 100%
+						height: 100%
+						z-index: -1
+						opacity: 0 
+						visibility: hidden
+						transition: all .2s ease
+					img.wall-0
+						z-index: 8
+						opacity: 0.4
+						visibility: visible
+					img.show
+						z-index: 100
+						opacity: 0.85
+						visibility: visible
+
+							
+				.category:hover
+					.categoryName
+						transform: scale(1)
+					.keys
+						.key
+							opacity: 1
+				.category
+					z-index: 10
+					width: 50%
+					height: 50%
+					display: flex
+					position: relative
+					justify-content: center
+					transition: all .3s cubic-bezier(0.215, 0.61, 0.355, 1)
+					&:hover
+					.categoryName
+						font-size: 48px
+						font-weight: 700
+						transform: scale(.375)
+						transition: transform .2s
+						color: #1d1d1d
+					.keys
+						padding: 3vmin 5vmin
+						width: 100%
+						position: absolute
+						left: 0
+						bottom: 0
+						justify-content: center
+						display: flex
+						flex-wrap: wrap
+						.key
+							opacity: 0
+							transition: all .3s ease
+							color: #707070
+							margin-right: 20px
+							font-size: 14px
+							line-height: 29px
+	.visual-box
+		color: #fff
+	.interective-box
+		color: #fff
+
+
+//Page - Web Design 
+.body
+	height: calc(100vh - 100px + 3px)
+	padding-top: 130px
+	.wrapper-design
+		height: 100%
+		padding-right: 50px
+		.row
+			height: 100%
+			.text-wrapper
+				padding: 0
+				height: 100%
+				display: block
+				.text-title
+					padding: 0 100px
+					padding-top: 40px
+					font-size: 52px
+					font-family: $avenir-Black
+					padding-bottom: 25px
+				.text-description
+					padding-left: 100px
+					padding-right: 70px
+					p
+						line-height: 33px
+						font-size: 16px
+			.img-wrapper
+				display: flex
+				height: 100%
+				.main-box
+					height: 100%
+					display: block
+					margin-right: 20px
+					img
+						height: 100%
+				.little-wrapper
+					display: flex
+					flex-direction: column
+					.first-box
+						display: flex
+						width: 300px
+						height: 50%
+						.box-description
+							font-family: $avenir-Black
+							font-size: 5.2vh
+							line-height: 1.2em
+					.secondary-box
+						display: flex
+						height: 50%
+						img
+							height: 100%
+
+
+
+.footer-menu
+	position: fixed
+	bottom: 0
+	left: 0
+	padding: 40px 50px
+	.menuWrapper
+		.navLink
+			padding-right: 15px
+			color: #1D1D1D
+			font-size: 14px
+		.navLink.active
+			font-family: $avenir-Black
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1600px)
+	/**/
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1400px)
+	/**/
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	/**/
+	body
+		.header
+			.logo
+				img
+					width: 90px
+			.menu
+				margin-top: 10px
+				.menuWrapper 
+					.navigation 
+						.navLink
+							font-size: 12px
+						&:first-child
+							padding-left: 30px
+		.author-box
+			right: 0
+			transform: translateX(37%)
+			.author-wrapper
+				transform: rotate(-90deg)
+				.authorlink
+		.OverlayWrapper
+			width: auto
+    	height: auto
+			.mainPage
+				width: auto
+				-ms-flex-wrap: nowrap
+				flex-wrap: nowrap
+				overflow-x: auto
+				.social
+					right: 40px
+				.categories
+					//height: calc(var(--innerHeight) - 100px)
+					height: calc(100vh - 100px)
+					width: auto;
+					margin-top: 100px
+					-ms-flex-wrap: nowrap
+					flex-wrap: nowrap
+					overflow-x: auto
+					.category
+						.categoryName
+							font-size: 24px
+							transform: none
+						min-width: 80vw
+						height: 100%
+						margin-top: auto
+						padding: 145px 20px 0 20px
+						flex-direction: column
+						border-right: 5px solid #fff
+						border-top: 1px solid #f8f8f8
+						align-items: left 
+						.keys
+							margin: auto 0 0 0
+							padding: 0 0 25px 0
+							display: flex
+							flex-wrap: nowrap
+							flex-direction: column
+							position: static
+							overflow: hidden
+					.wallpapers
+						height: calc(100vh - 100px)
+						position: fixed
+						top: auto
+						bottom: 0
+
+
+		
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	/**/
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	/**/
+
+
+
+/* Large Devices, Tablets */
+@media only screen and (min-width : 993px)
+	/**/
+	body
+		.author-box
+			left: 0
+			transform: translateX(-37%)
+			.author-wrapper
+				transform: rotate(-90deg)
+				.authorlink
+		.OverlayWrapper
+			.mainPage
+				.social
+					left: 40px
+				.categories
+					.category
+						align-items: center
+						.keys
+						&:nth-child(1)
+							border-right: 4px solid #fff
+							border-bottom: 4px solid #fff
+						&:nth-child(2)
+							border-left: 4px solid #fff
+							border-bottom: 4px solid #fff
+						&:nth-child(3)
+							border-right: 4px solid #fff
+							border-top: 4px solid #fff
+						&:nth-child(4)
+							border-left: 4px solid #fff
+							border-top: 4px solid #fff
