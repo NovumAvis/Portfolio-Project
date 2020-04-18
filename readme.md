@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1>Portfolio-Project</h1>
 <p>Based on lightweight startup HTML5 Gulp template.</p>
 
