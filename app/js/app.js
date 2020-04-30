@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
 });
+
+
+//прелодер
+$(window).on('load', function(){
+	$('.preloader').delay(500).fadeOut('slow');
+});
+
+
 	// Custom JS
 $(document).ready(function() {
 	
@@ -7,7 +15,12 @@ $(document).ready(function() {
 	// 	$(".first-img").toggleClass("active");
 	// });
 
-
+	$(".contactme-line").click(function(){
+		$(".contactme-wrapper").toggleClass("active");
+		$(".author-sec-wrapper").toggleClass("active");
+		$(".contactme-line").toggleClass("active");
+		return false;
+	});
 
 	$(".cat-1").hover(function(){
 		$(".wall-1").toggleClass("show");

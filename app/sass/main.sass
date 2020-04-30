@@ -12,34 +12,92 @@
 	text-align: center
 	pointer-events: none
 
+// ------------------------------ preloader ----------------------------------
 
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: #000
+	z-index: 1010
+
+.loader
+	display: inline-block
+	width: 35px
+	height: 35px
+	position: relative
+	border: 1.5px solid #F1F2F0
+	top: 50vh
+	left: 50%
+	margin-left: -20px
+	margin-top: -20px
+	animation: loader 1.9s infinite ease
+
+.loader-inner
+	vertical-align: top
+	display: inline-block
+	width: 100%
+	background-color: #fff
+	animation: loader-inner 1.9s infinite ease-in
+
+@keyframes loader
+	0%
+		transform: rotate(0deg)
+	25%
+		transform: rotate(-180deg)
+	50%
+		transform: rotate(-180deg)
+	75%
+		transform: rotate(-360deg)
+	100%
+		transform: rotate(-360deg)
+
+@keyframes loader-inner
+	0%
+		height: 0%
+	25%
+		height: 0%
+	50%
+		height: 100%
+	75%
+		height: 100%
+	100%
+		height: 0%
+	
+
+// ------------------------------ page ----------------------------------
 
 body
 	background-color: #fff
 	height: 100%
-	overflow: hidden
-	.author-box
+	.contactme-line
 		position: fixed
-		z-index: 999
+		z-index: 200
 		top: 50%
-		.author-wrapper
+		cursor: pointer
+		.contactme-line-wrapper
 			height: auto
 			width: auto
 			position: relative
-			.authorlink
+			.contactme-link
 				font-size: 12px
 				text-transform: uppercase
 				text-decoration: none
 				letter-spacing: 0.15em
 				background-color: #000
 				color: #F2F3F1
-				font-family: $avenir
+				font-family: $avenirNext-light
 				white-space: nowrap
 				transition: all .2s ease
 				padding: 18px 20px
 				&:after
 					background: none repeat scroll 0 0 transparent
-					bottom: 0
+					bottom: 17px
 					content: ""
 					display: block
 					height: 1px
@@ -49,19 +107,53 @@ body
 					transition: width 0.3s ease 0s, left 0.3s ease 0s
 					width: 0
 				&:hover:after
-					width: 80%
+					width: 78.5%
 					left: 10%
+	.contactme-wrapper
+		transition: all 1s ease
+		z-index: 999
+		position: fixed
+		top: 0
+		left: 100%
+		transform: translateX(0%)
+		width: 100%
+		height: 100vh
+		background-color: #000
+		opacity: 1
+		overflow: scroll
+		.contactme-text-wrapper
+			padding: 80px 100px 0 40%
+			color: #fff
+			h2
+				font-size: 39px
+				line-height: 1.2em
+				padding-bottom: 12px
+			p
+				line-height: 33px
+   			font-size: 16px
+		.contactme-empty-wrapper
+			height: 160px
+
+	.contactme-wrapper.active
+		transform: translateX(-135%)
+	.author-sec-wrapper.active
+		transform: translateX(-135%)
 	.header
 		position: fixed
     left: 0
     top: 0
-		height: 100px
+		height: 80px
 		width: 100%
 		display: flex
 		align-items: center
 		padding: 0 50px
 		z-index: 20
+		background-color: #fff
 		.logo
+			opacity: 1
+			transition: all .2s ease
+			&:hover
+				opacity: .7
 			img
 				height: auto
 				width: 120px
@@ -81,14 +173,13 @@ body
 					.navLink:hover
 						color: #1D1D1D
 					.navLink.active
-						font-family: $avenir
+						font-family: $avenirNext-light
 	.OverlayWrapper
 		.mainPage
 			.social
 				position: fixed
 				display: flex
 				flex-direction: column
-				//left: 40px
 				bottom: 0
 				z-index: 11
 				.socialLink
@@ -97,8 +188,12 @@ body
 					display: flex
 					align-items: center
 					justify-content: center
+					transition: all .1s ease
+					opacity: .6
+					&:hover
+						opacity: 1
 					img
-						max-height: 14px
+						max-height: 15px
 					&:nth-last-child(1)
 						padding-bottom: 55px
 			.categories
@@ -127,13 +222,13 @@ body
 						transition: all .2s ease
 					img.wall-0
 						z-index: 8
-						opacity: 0.4
+						opacity: 0.2
 						visibility: visible
 					img.show
 						z-index: 100
 						opacity: 0.85
+						opacity: 1
 						visibility: visible
-
 							
 				.category:hover
 					.categoryName
@@ -177,25 +272,30 @@ body
 	.interective-box
 		color: #fff
 
+body
+	.main-header
+		background: none
 
-//Page - Web Design 
+
+
+//All styles + Page - Web Design 
 .body
-	height: calc(100vh - 100px + 3px)
-	padding-top: 130px
-	.wrapper-design
+	padding-top: 80px
+	.wrapper
 		height: 100%
 		padding-right: 50px
 		.row
 			height: 100%
 			.text-wrapper
 				padding: 0
-				height: 100%
+				height: max-content
 				display: block
+				padding-bottom: 60px
 				.text-title
 					padding: 0 100px
 					padding-top: 40px
 					font-size: 52px
-					font-family: $avenir-Black
+					font-family: $avenirNext-Bold
 					padding-bottom: 25px
 				.text-description
 					padding-left: 100px
@@ -207,42 +307,381 @@ body
 				display: flex
 				height: 100%
 				.main-box
+					width: 100%
 					height: 100%
 					display: block
 					margin-right: 20px
 					img
+						width: 100%
 						height: 100%
+						min-width: 270px
+						object-fit: cover
 				.little-wrapper
 					display: flex
 					flex-direction: column
+					margin-right: 20px
 					.first-box
 						display: flex
-						width: 300px
+						width: 100%
 						height: 50%
+    				max-height: 50%
 						.box-description
-							font-family: $avenir-Black
-							font-size: 5.2vh
+							font-family: $avenirNext-Bold
+							font-size: 39px
 							line-height: 1.2em
 					.secondary-box
 						display: flex
-						height: 50%
+						max-height: 50%
+						width: 100%
 						img
-							height: 100%
-
-
+							max-width: 100%
 
 .footer-menu
+	width: 100%
 	position: fixed
 	bottom: 0
 	left: 0
-	padding: 40px 50px
+	padding: 30px 50px
+	background: rgba(255,255,255,0)
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(55%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)))
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 )
 	.menuWrapper
 		.navLink
 			padding-right: 15px
 			color: #1D1D1D
 			font-size: 14px
 		.navLink.active
-			font-family: $avenir-Black
+			font-family: $avenirNext-Bold
+
+
+
+//Page - Consulting
+body
+	.body
+		height: auto
+		.page-consulting
+			text-align: center
+			padding: 0 50px
+			height: 70vh
+			.row
+				height: 100%
+				.consul-img-wrapper
+					padding: 0 30px 0 10px
+					.main-box
+						margin: 0
+				.consul-text-wrapper
+					.text-title
+						padding: 40px 20px 25px 20px
+					.text-description
+						font-size: 50px
+						padding: 0 10px
+				.consul-second-img-wrapper
+					padding: 0 10px 0 30px
+					display: flex
+					height: 100%
+					.little-wrapper
+						display: flex
+						flex-direction: column
+						.third-box
+							display: none
+						.secondary-box
+							display: flex
+							//max-height: 50%
+							width: 100%
+							img
+								max-width: 100%
+						.first-box
+							padding-top: 20px
+							display: flex
+							width: 100%
+							height: 50%
+							max-height: 50%
+							.box-description
+								font-family: $avenirNext-Bold
+								font-size: 39px
+								line-height: 1.2em
+								text-align: right
+
+//Page - Front-End	
+body
+	.body 
+		.wrapper.page-front-end 
+			padding-left: 50px
+			padding-right: 50px
+			.row 
+				.text-wrapper 
+					padding-right: 10px
+					.text-title
+						text-align: right
+						padding-right: 0
+					.text-description
+						padding-right: 0
+						text-align: right
+						//padding-bottom: 40px
+				.img-wrapper 
+					.little-wrapper 
+						margin-right: 0
+						.secondary-box 
+							img
+								object-fit: cover
+						.first-box
+							padding-top: 20px
+							.box-description
+								font-size: 26px
+								
+					.main-box 
+						padding: 0
+						img
+							min-width: 100%
+							width: 100%
+
+
+
+//Page - Back-End
+body
+	.body
+		height: auto
+		.page-backend
+			text-align: center
+			padding: 0 50px
+			height: 70vh
+			.row
+				height: 100%
+				.backend-img-wrapper
+					padding: 0 10px 0 30px
+					.main-box
+						margin: 0
+				.backend-text-wrapper
+					.text-title
+						padding: 40px 20px 25px 20px
+					.text-description
+						font-size: 50px
+						padding: 0 10px
+				.backend-second-img-wrapper
+					padding: 0 30px 0 10px
+					display: flex
+					height: 100%
+					.little-wrapper
+						display: flex
+						flex-direction: column
+						.third-box
+							display: none
+						.secondary-box
+							display: flex
+							width: 100%
+							img
+								max-width: 100%
+						.first-box
+							padding-top: 20px
+							display: flex
+							width: 100%
+							height: 50%
+							max-height: 50%
+							.box-description
+								font-family: $avenirNext-Bold
+								font-size: 39px
+								line-height: 1.2em
+								text-align: right			
+
+
+//Page - Portfolio
+body
+	.body.portfolio
+		height: 100%
+		.wrapper.page-portfolio
+			display: flex
+			height: auto
+			will-change: transform
+			padding-right: 10px
+			.row
+				height: calc(100vh - 150px + 3px)
+				overflow-x: auto
+				flex-wrap: nowrap
+				width: auto
+				.text-wrapper
+					padding-bottom: 0
+					.text-title
+						margin-right: 100px
+					.text-description
+						.scroll-text
+							padding: 20px 0 0 170px
+							font-size: 38px
+							color: #707070
+				.big-img-wrapper
+					display: flex
+					height: 100%
+					.main-box
+						height: 100%
+						margin: 0 5px
+						img
+							height: 100%
+					.second-box
+						display: flex
+						flex-direction: column
+						width: max-content
+						.first-line
+							height: 50%
+							flex-direction: row
+							width: max-content
+							padding-bottom: 2.5px
+							img
+								object-fit: cover
+								height: 100%
+							img:nth-child(1)
+								width: 35vh
+							img:nth-child(2)
+								width: 55vh
+								padding-right: 1px
+							img:nth-child(3)
+								width: 30vh
+						.second-line
+							width: max-content
+							height: 50%
+							flex-direction: row
+							padding-top: 2.5px
+							img
+								object-fit: cover
+								height: 100%
+							img:nth-child(1)
+								width: 80vh
+							img:nth-child(2)
+								width: 40.6vh
+					.third-box
+						height: 100%
+						margin: 0 5px
+						img
+							object-fit: cover
+							width: 70vh
+							height: 100%
+					.fourth-box
+						display: flex
+						flex-direction: column
+						width: max-content
+						.first-line
+							height: 50%
+							flex-direction: row
+							width: max-content
+							padding-bottom: 2.5px
+							img
+								object-fit: cover
+								height: 100%
+							img:nth-child(1)
+								width: 80.6vh
+						.second-line
+							width: max-content
+							height: 50%
+							flex-direction: row
+							padding-top: 2.5px
+							img
+								object-fit: cover
+								height: 100%
+							img:nth-child(1)
+								width: 45vh
+								padding-right: 1px
+							img:nth-child(2)
+								width: 35vh
+								
+
+
+//Page - About
+body
+	.body
+		height: auto
+		.page-about
+			text-align: left
+			padding: 0 50px
+			height: 70vh
+			.row
+				height: 100%
+				.about-img-wrapper
+					padding: 0 30px 0 10px
+					.main-box
+						margin: 0
+				.about-text-wrapper
+					.text-title
+						padding: 40px 20px 25px 20px
+					.text-description
+						font-size: 50px
+						padding: 0 10px
+				.about-second-img-wrapper
+					padding: 0 10px 0 30px
+					display: none
+					height: 100%
+					.little-wrapper
+						display: flex
+						flex-direction: column
+						.third-box
+							display: none
+						.secondary-box
+							display: flex
+							//max-height: 50%
+							width: 100%
+							img
+								max-width: 100%
+						.first-box
+							padding-top: 20px
+							display: flex
+							width: 100%
+							height: 50%
+							max-height: 50%
+							.box-description
+								font-family: $avenirNext-Bold
+								font-size: 39px
+								line-height: 1.2em
+								text-align: right
+
+//Page - About
+body
+	.body
+		height: auto
+		.page-contacts
+			text-align: left
+			padding: 0 50px
+			height: 70vh
+			.row
+				height: 100%
+				.contacts-img-wrapper
+					padding: 0 10px 0 30px
+					.main-box
+						margin: 0
+				.contacts-text-wrapper
+					.text-title
+						padding: 40px 20px 25px 20px
+					.text-description
+						font-size: 50px
+						padding: 0 10px
+						padding-right: 70px
+				.contacts-second-img-wrapper
+					padding: 0 10px 0 30px
+					display: none
+					height: 100%
+					.little-wrapper
+						display: flex
+						flex-direction: column
+						.third-box
+							display: none
+						.secondary-box
+							display: flex
+							//max-height: 50%
+							width: 100%
+							img
+								max-width: 100%
+						.first-box
+							padding-top: 20px
+							display: flex
+							width: 100%
+							height: 50%
+							max-height: 50%
+							.box-description
+								font-family: $avenirNext-Bold
+								font-size: 39px
+								line-height: 1.2em
+								text-align: right
 
 
 /* Large Devices, Wide Screens */
@@ -269,6 +708,7 @@ body
 	body
 		.header
 			.logo
+				padding-top: 10px
 				img
 					width: 90px
 			.menu
@@ -279,12 +719,12 @@ body
 							font-size: 12px
 						&:first-child
 							padding-left: 30px
-		.author-box
+		.contactme-line
+			display: none
 			right: 0
 			transform: translateX(37%)
-			.author-wrapper
+			.contactme-line-wrapper
 				transform: rotate(-90deg)
-				.authorlink
 		.OverlayWrapper
 			width: auto
     	height: auto
@@ -294,9 +734,10 @@ body
 				flex-wrap: nowrap
 				overflow-x: auto
 				.social
-					right: 40px
+					right: 50px
+					.socialLink:nth-last-child(1)
+						//padding-bottom: 25px
 				.categories
-					//height: calc(var(--innerHeight) - 100px)
 					height: calc(100vh - 100px)
 					width: auto;
 					margin-top: 100px
@@ -329,31 +770,314 @@ body
 						top: auto
 						bottom: 0
 
+	.body 
+		height: 100%
+		.wrapper.page-design
+			.row 
+				.img-wrapper 
+					.little-wrapper
+						display: none
 
-		
+	.footer-menu 
+		.menuWrapper 
+			.navLink
+				font-size: 12px
+
+	body
+		.body
+			.page-consulting //Page - Consulting
+				.row 
+					.consul-second-img-wrapper 
+						display: none
+			.wrapper.page-front-end //Page - Front-End 
+				.row 
+					.img-wrapper 
+						padding-bottom: 80px
+						.little-wrapper
+							display: none
+						.main-box
+							padding-left: 0
+			.page-backend //Page - Backend
+				padding-bottom: 40px
+				.row 
+					.backend-second-img-wrapper 
+						display: none
+		.body.about	//Page - About
+			.page-about 
+				.row 
+					.about-second-img-wrapper 
+						display: none
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px)
 	/**/
+	body
+		.header
+			height: 70px
+		.body 
+			padding-top: 70px
+			.wrapper
+				padding-top: 40px
+				height: auto
+				padding-right: 0
+				padding-left: 0
+				.row 
+					.text-wrapper 
+						padding-bottom: 10px
+						.text-title
+							padding-top: 0
+							padding-bottom: 10px
+							font-size: 32px
+							padding-left: 70px
+						.text-description
+							padding-top: 10px
+							padding-left: 70px
+							p
+								font-size: 13px
+					.img-wrapper 
+						height: 400px
+						padding-bottom: 80px
+						.main-box
+							margin-right: 0
+							padding: 0
+							padding-right: 40px
+							padding-left: 60px
+							width: auto
+							img
+								width: 100%
+						.little-wrapper
+							display: flex
+							.secondary-box
+								img
+									width: auto
+									height: 100%
+									min-width: 190px
+							.first-box 
+								max-width: 225px
+								.box-description
+									font-size: 24px
+
+			.page-consulting //Page - Consulting
+				.row 
+					.consul-img-wrapper
+						display: none
+					.consul-text-wrapper
+						.text-title
+							padding: 0px 50px 10px 50px
+						.text-description
+							padding: 10px 50px
+					.consul-second-img-wrapper 
+						display: flex
+						padding: 10px
+						padding-top: 0px
+						height: 50%
+						.little-wrapper 
+							padding: 10px
+							padding-bottom: 60px
+							flex-direction: row
+							height: 50%
+							.third-box
+								padding-right: 5px
+								display: flex
+								width: 100%
+								height: auto
+								max-height: 300px
+								img
+									width: 100%
+									object-fit: cover
+									height: 100%
+							.secondary-box
+								padding-left: 5px
+								max-height: 100%
+								height: auto
+								width: 100%
+								img
+									width: 100%
+									height: 100%
+									object-fit: cover
+							.first-box
+								display: none
+								width: 100%
+								padding: 0 40px
+								.box-description
+									width: 100%
+									text-align: center
+										
+
+			.wrapper.page-front-end //Page - Front-End
+				.row 
+					.text-wrapper
+						.text-description
+							padding-bottom: 80px
+					.img-wrapper
+						padding-bottom: 30px
 
 
+			.page-backend //Page - Backend
+				.row 
+					.backend-img-wrapper
+						display: none
+					.backend-text-wrapper
+						.text-title
+							padding: 0px 50px 10px 50px
+						.text-description
+							padding: 10px 50px
+					.backend-second-img-wrapper 
+						display: flex
+						padding: 10px
+						padding-top: 0px
+						height: 50%
+						.little-wrapper 
+							padding: 10px
+							padding-bottom: 20px
+							flex-direction: row
+							height: 50%
+							.third-box
+								padding-right: 5px
+								display: flex
+								width: 100%
+								height: auto
+								max-height: 300px
+								img
+									width: 100%
+									object-fit: cover
+									height: 100%
+							.secondary-box
+								padding-left: 5px
+								max-height: 100%
+								height: auto
+								width: 100%
+								img
+									width: 100%
+									height: 100%
+									object-fit: cover
+							.first-box
+								display: none
+								width: 100%
+								padding: 0 40px
+								.box-description
+									width: 100%
+									text-align: center
+	body	//Page - About
+		.body.about
+			padding-top: 70px		
+			.page-about
+				.row 
+					.about-img-wrapper
+						display: none
+					.about-text-wrapper
+						.text-title
+							padding: 0px 50px 10px 50px
+						.text-description
+							padding: 10px 50px
+					.about-second-img-wrapper 
+						display: flex
+						padding: 10px
+						padding-top: 0px
+						height: 50%
+						.little-wrapper 
+							padding: 10px
+							padding-bottom: 60px
+							flex-direction: row
+							height: 50%
+							.third-box
+								padding-right: 5px
+								display: flex
+								width: 100%
+								height: auto
+								max-height: 300px
+								img
+									width: 100%
+									object-fit: cover
+									height: 100%
+							.secondary-box
+								padding-left: 5px
+								max-height: 100%
+								height: auto
+								width: 100%
+								img
+									width: 100%
+									height: 100%
+									object-fit: cover
+							.first-box
+								display: none
+								width: 100%
+								padding: 0 40px
+								.box-description
+									width: 100%
+									text-align: center
+
+	body	 
+		.body.portfolio
+			.wrapper.page-portfolio //Page - Backend
+				.row 
+					height: calc(100vh - 165px + 3px)
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
 	/**/
+	body 
+		.header
+			.menu 
+				.menuWrapper 
+					.navigation:first-child	
+						padding-top: 0
+						.navLink		
+							padding: 2px 12.5px
+		.body 
+			.wrapper
+				.row 
+					.img-wrapper 
+						height: 100%
+						width: 100%
+						.main-box
+							padding-left: 50px
+							padding-right: 50px
+							max-width: 100%
+							img
+								height: 100%
+								width: 100%
+						.little-wrapper
+							display: none
+
+			.wrapper.page-portfolio
+				.row 
+					.text-wrapper
+					.img-wrapper 
+						.main-box
+						.little-wrapper
+							display: flex
 
 
+//Page - Consulting
+
+					
 
 /* Large Devices, Tablets */
 @media only screen and (min-width : 993px)
 	/**/
+
 	body
-		.author-box
+		.contactme-line.active
+			left: 65%
+		.contactme-line
 			left: 0
-			transform: translateX(-37%)
-			.author-wrapper
+			transform: translateX(calc(-37%))
+			transition: all 1s ease
+			.contactme-line-wrapper
 				transform: rotate(-90deg)
-				.authorlink
+				position: relative
+				.contactme-link
+					padding-left: 40px
+					padding-right: 40px
+				.emptybox
+					position: absolute
+					height: 5000px
+					width: 164px
+					background-color: #000
+					bottom: 49px
+
+
 		.OverlayWrapper
 			.mainPage
 				.social
@@ -374,3 +1098,12 @@ body
 						&:nth-child(4)
 							border-left: 4px solid #fff
 							border-top: 4px solid #fff
+
+
+
+//Page - Consulting
+
+
+// /* Large Devices, Tablets */
+// @media only screen and (min-width : 768px)
+// /**/

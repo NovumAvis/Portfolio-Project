@@ -8,7 +8,10 @@ $roboto: Roboto, sans-serif // Roboto Font Family
 $avenir: Avenir, sans-serif // Avenir Font Family
 $avenir-light: Avenir-light, sans-serif // Avenir Font Family
 $avenir-Black: Avenir-Black, sans-serif // Avenir Font Family
-
+$avenirNext-light: AvenirNext-light, sans-serif // Avenir Font Family
+$avenirNext-Demi: AvenirNext-Demi, sans-serif // Avenir Font Family
+$avenirNext-Bold: AvenirNext-Bold, sans-serif // Avenir Font Family
+AvenirNext-light
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 20px
 $gutter: $grid-gutter-width
@@ -37,6 +40,9 @@ $gutter: $grid-gutter-width
 @include font('Avenir', normal, 700, '../fonts/Avenir-Heavy.woff2')
 @include font('Avenir-light', normal, 400, '../fonts/Avenir-Light.woff2')
 @include font('Avenir-Black', normal, 700, '../fonts/Avenir-Black.woff2')
+@include font('AvenirNext-light', normal, 400, '../fonts/AvenirNext-Light.woff2')
+@include font('AvenirNext-Demi', normal, 500, '../fonts/AvenirNext-Demi.woff2')
+@include font('AvenirNext-Bold', normal, 700, '../fonts/AvenirNext-Bold.woff2')
 
 // GENERAL DOCUMENT STYLES
 
@@ -55,12 +61,11 @@ input, textarea
 		border-color: green
 
 body
-	font-family: $avenir-light, sans-serif
-	font-family: 
+	font-family: $avenirNext-light, sans-serif
 	font-size: $fontsize
 	min-width: 320px
 	position: relative
-	line-height: 1.65
+	line-height: 1.2
 	overflow-x: hidden
 	color: $textcolor
 
@@ -70,7 +75,7 @@ a
 		text-decoration: none
 h2
 	display: flex
-	font-family: $avenir
+	font-family: $avenirNext-Bold
 
 ul
 	list-style: none
