@@ -11,9 +11,35 @@ $(window).on('load', function(){
 	// Custom JS
 $(document).ready(function() {
 	
-	// $(".cat-1").mouseenter(function(){
-	// 	$(".first-img").toggleClass("active");
-	// });
+
+// Type Image Zoom - картинка с анимацией + проверка на наличие необходимого id 
+var popupElement = document.getElementById('popup-is-here');
+if (popupElement){
+	$('.image-popup-zoom').magnificPopup({
+		type: 'image'
+		});
+}
+
+
+//анимация feetback при успешной отправки формы
+$(".form").submit(function() {
+	var th = $(this);
+	$.ajax({
+	type: "GET",
+	url: 'mail.php',
+	data: th.serialize()
+	}).done(function(){ 
+		$('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+		setTimeout(function() {
+			$('.success').removeClass('active').fadeOut();
+			var magnificPopup = $.magnificPopup.instance; 
+			magnificPopup.close(); 
+			th.trigger("reset");
+		}, 3000);
+	}); 
+	return false;
+}); 
+ 
 
 	$(".contactme-line").click(function(){
 		$(".contactme-wrapper").toggleClass("active");
