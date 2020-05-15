@@ -16,11 +16,13 @@
 
 <body>
 	<div class="header">
+
 		<div class="logo">
 			<a href="index.html">
 				<img class="Logo-icon" src="img/logo.png" alt="logo">
 			</a>
 		</div>
+
 		<div class="menu">
 			<div class="menuWrapper">
 				<nav class="navigation">
@@ -29,23 +31,25 @@
 					<a href="page-contacts.html" class="navLink">Контакты</a>
 				</nav>
 			</div>
-		</div> <!-- End Menu -->
+		</div> 
 
 	</div> 
 <!-- End Header -->
 
 
 
-
-
-<div class="success"><span>Спасибо за заявку</span></div>
 <!-- Page - About -->
+<div class="success">
+	<p>Спасибо за заявку!</p> 
+	<p>Ожидайте ответ в самое ближайшее время.</p>
+</div>
+
 <div class="body contacts">
 	<div class="container-fluid wrapper page-contacts">
 		<div class="row">
 
 			<div class="col-12 col-md-6 col-lg-7 text-wrapper contacts-text-wrapper">
-				<div class="text-title">Связаться со мной</div>
+				<div class="text-title"><h2>Связаться со мной</h2></div>
 				<div class="text-description">
 					<p>В настоящее время я свободен для freelance работы.
 						<br>
@@ -57,52 +61,48 @@
 						<p class="">Телефон: +7 (950) 677-71-06</p>
 					</div>
 				</div>
-				
-				<!-- <div class="text-description">
-					<p>Если у вас есть запрос или какие-то вопросы, не стесняйтесь связаться со мной, или используя форму ниже: </p>
-					
-				</div> -->
+				<!--_______________________ form _______________________ -->
+				<form action="mail.php" class="form" method="POST" id="callback">
+					<label for="name-order">
+						<span>Имя:</span>
+						<input type="text" name="Имя" placeholder="Ваше имя..." id="name-order" required />
+					</label>
 
+					<label for="request-order">
+						<span>Запрос:</span>
+						<select name="Запрос" required id="request-order">
+							<option value disabled selected>Выбрать запрос...</option>
+							<option>Заказать сайт под ключ</option>
+							<option>Спроектировать дизайн для сайта</option>
+							<option>Верстка дизайна</option>
+							<option>Посадка верстки на CMS</option>
+							<option>Консультация по иным вопросам</option>
+						</select>
+					</label>
 
-<!--_______________________ form _______________________ -->
-	<form class="form" id="callback">
-		<label for="name-order">
-			<span>Имя:</span>
-			<input type="text" name="name" placeholder="Ваше имя..." id="name-order" required />
-		</label>
-		<label for="request-order">
-			<span>Запрос:</span>
-			<select name="Запрос" required id="request-order">
-				<option value disabled selected>Выбрать запрос...</option>
-				<option>Заказать сайт под ключ</option>
-				<option>Спроектировать дизайн для сайта</option>
-				<option>Верстка дизайна</option>
-				<option>Посадка верстки на CMS</option>
-				<option>Консультация по иным вопросам</option>
-			</select>
-		</label>
-		<label for="phone-order">
-			<span>Телефон:</span>
-			<input type="tel" name="phone" placeholder="Ваш телефон..." id="phone-order" required />
-		</label>
-		<label for="email-order">
-			<span>Email:</span>
-			<input type="email" name="email" placeholder="Ваш email..." id="email-order" required />
-		</label>
-		<label class="form-message" for="message-order">
-			<span>Сообщение:</span>
-			<textarea rows="4" name="message" placeholder="Опишите свой запрос..." id="message-order" required></textarea>
-		</label>
-		<div class="button-wrap">
-			<button class="buttons">Отправить</button>
-		</div>
+					<label for="phone-order">
+						<span>Телефон:</span>
+						<input type="tel" name="Телефон" placeholder="Ваш телефон..." id="phone-order" required />
+					</label>
 
-		<input type="hidden" name="site_name" value="N.AVIS" />
-		<input type="hidden" name="admin_mail" value="novumavis@gmail.com" />
-		<input type="hidden" name="form_subject" value="Заявка с сайта N.AVIS" />
-	</form>
+					<label for="email-order">
+						<span>Email:</span>
+						<input type="text" name="email" placeholder="Ваш email..." id="email-order" required />
+					</label>
 
+					<label class="form-message" for="message-order">
+						<span>Сообщение:</span>
+						<textarea rows="4" name="message" placeholder="Опишите свой запрос..." id="message-order"></textarea>
+					</label>
 
+					<div class="button-wrap">
+						<button class="buttons">Отправить</button>
+					</div>
+
+					<input type="hidden" name="site_name" value="N.AVIS" />
+					<input type="hidden" name="admin_email" value="novumavis@gmail.com" />
+					<input type="hidden" name="form_subject" value="Заявка с сайта N.AVIS" />
+				</form>
 			</div>
 
 			<div class="col-6 col-sm-12 col-md-6 col-lg-5 img-wrapper contacts-img-wrapper">
@@ -113,7 +113,6 @@
 					<p>NovumAvis@gmail.com</p>
 					<p>+7 (950) 677-71-06</p>
 				</div>
-				
 			</div>
 
 			<div class="col-12 col-lg-4 contacts-second-img-wrapper">
@@ -121,22 +120,17 @@
 					<div class="third-box">
 						<img src="img/src/wall-contacts.jpg" alt="">
 					</div>
-
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
-
 <!-- END Page - About-->
 
 
 
-
-
-
-
-<!-- Footer -->
+<!-- Footer-menu -->
 <div class="footer-menu">
 	<div class="menuWrapper">
 		<nav class="navigation">
@@ -146,12 +140,14 @@
 			<a href="page-back-end.html" class="navLink">Back-end</a>
 		</nav>
 	</div>
+</div> 
+<!-- End Footer-menu -->
 
-</div> <!-- End Footer-menu -->
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/animate-css.js"></script>
-	<script src="js/app.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/animate-css.js"></script>
+<script src="js/jquery.inputmask.min.js"></script>
+<script src="js/app.min.js"></script>
 
 </body>
 </html>

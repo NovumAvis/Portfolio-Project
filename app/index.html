@@ -20,6 +20,83 @@
 		<span class="loader"><span class="loader-inner"></span></span>
 	</div> 
 
+
+
+<!-- Contactme Block -->
+	<div class="contactme-wrapper">
+		<div class="contactme-text-wrapper">
+
+			<h3>Связаться со мной</h3>
+
+			<div class="text-description">
+				<p>В настоящее время я свободен для freelance работы.
+					<br>
+					Если у вас есть запрос или какие-то вопросы, 
+					не стесняйтесь связаться со мной, используя форму ниже: 
+				</p>
+				<div class="contacts-info">	
+					<p class="">Почта: NovumAvis@gmail.com</p>
+					<p class="">Телефон: +7 (950) 677-71-06</p>
+				</div>
+			</div>
+			<!--_______________________ form _______________________ -->
+			<form action="mail.php" class="form" method="POST" id="callback">
+				<label for="name-order">
+					<span>Имя:</span>
+					<input type="text" name="Имя" placeholder="Ваше имя..." id="name-order" required />
+				</label>
+				<label for="request-order">
+					<span>Запрос:</span>
+					<select name="Запрос" required id="request-order">
+						<option value disabled selected>Выбрать запрос...</option>
+						<option>Заказать сайт под ключ</option>
+						<option>Спроектировать дизайн для сайта</option>
+						<option>Верстка дизайна</option>
+						<option>Посадка верстки на CMS</option>
+						<option>Консультация по иным вопросам</option>
+					</select>
+				</label>
+				<label for="phone-order">
+					<span>Телефон:</span>
+					<input type="tel" name="Телефон" placeholder="Ваш телефон..." id="phone-order" required />
+				</label>
+				<label for="email-order">
+					<span>Email:</span>
+					<input type="text" name="email" placeholder="Ваш email..." id="email-order" required />
+				</label>
+				<label class="form-message" for="message-order">
+					<span>Сообщение:</span>
+					<textarea rows="4" name="message" placeholder="Опишите свой запрос..." id="message-order"></textarea>
+				</label>
+				<div class="button-wrap">
+					<button class="buttons">Отправить</button>
+				</div>
+		
+				<input type="hidden" name="site_name" value="N.AVIS" />
+				<input type="hidden" name="admin_email" value="novumavis@gmail.com" />
+				<input type="hidden" name="form_subject" value="Заявка с сайта N.AVIS" />
+			</form>
+
+		</div>
+	</div>
+
+	<div class="contactme-line">
+		<div class="contactme-line-wrapper">
+			<div class="emptybox">
+			</div>
+			<div class="contactme-link">Связаться</div>
+		</div>
+	</div>
+<!-- Contactme Block -->
+
+
+
+<!-- Overlay Glass -->
+<div class="overlay-glass"></div>
+
+
+
+<!-- Header -->
 	<div class="header main-header">
 		<div class="logo">
 			<a href="index.html">
@@ -39,45 +116,9 @@
 <!-- End Header -->
 
 
-
-<!-- Main Page -->
-	<div class="contactme-wrapper">
-			<div class="contactme-text-wrapper">
-				<h2>So many words here</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Aut nulla reprehenderit dicta adipisci quaerat. Eius quam
-				eum temporibus ea, perferendis aut! Libero reprehenderit nisi 
-				eos tempora cum, debitis sunt voluptatem at ad placeat amet in 
-				optio totam blanditiis consequatur. Iure quas error sunt quae aliquid.
-				Corrupti earum a incidunt asperiores!
-				</p>
-				<p>Eius quam eum temporibus ea, perferendis aut! Libero reprehenderit 
-				nisi eos tempora cum, debitis sunt voluptatem at ad placeat amet in 
-				optio totam blanditiis consequatur.
-				</p>
-				<p> Libero reprehenderit nisi eos tempora cum, debitis sunt voluptatem at 
-				ad placeat amet in optio totam blanditiis consequatur. Iure quas error sunt 
-				quae aliquid. Corrupti earum a incidunt asperiores! Aut nulla reprehenderit 
-				dicta adipisci quaerat. Eius quam eum temporibus ea, perferendis aut!
-				</p>
-				<p>Iure quas error sunt quae aliquid.
-				Corrupti earum a incidunt asperiores!
-				Aut nulla reprehenderit dicta adipisci quaerat.
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="contactme-line">
-		<div class="contactme-line-wrapper">
-			<div class="emptybox">
-			</div>
-			<div class="contactme-link">Связаться</div>
-		</div>
-	</div>
-
 	
-	<div class="fluid-container OverlayWrapper">
+<!-- Main Page -->
+	<div class="fluid-container overlay-wrapper">
 		<div class="mainPage">
 			<main class="categories">
 				<a href="page-front-end.html" class="category cat-1">
@@ -108,10 +149,10 @@
 			<a href="page-consulting.html" class="category cat-4">
 				<h2 class="categoryName" data-title="Interactive">Консультация</h2>
 				<ul class="keys">
-					<li class="key">Still Images</li>
-					<li class="key">Motion Images</li>
-					<li class="key">Animations</li>
-					<li class="key">360° Images</li>
+					<li class="key">Разработка нового проекта</li>
+					<li class="key">Редактирование существующего сайта</li>
+					<li class="key">Решение проблем</li>
+					<li class="key">Внедрение новых элементов</li>
 				</ul>
 			</a>
 			<div class="wallpapers">
@@ -137,11 +178,9 @@
 	</div>
 	<!-- Main content -->
 
-	
-
-<!-- Footer -->
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/app.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery.inputmask.min.js"></script>
+<script src="js/app.min.js"></script>
 
 </body>
 </html>

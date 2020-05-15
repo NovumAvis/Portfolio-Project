@@ -72,6 +72,18 @@
 body
 	background-color: #fff
 	height: 100%
+	.overlay-glass
+		display: none
+		z-index: 15
+		height: 100vh
+		width: 100%
+		position: fixed
+		top: 0
+		left: 0
+	.overlayIt
+		display: block
+	.blurIt
+		filter: blur(2px)	
 	.contactme-line
 		position: fixed
 		z-index: 200
@@ -105,7 +117,7 @@ body
 					width: 0
 				&:hover:after
 					width: 78.5%
-					left: 10%
+					left: 10%		
 	.contactme-wrapper
 		transition: all 1s ease
 		z-index: 999
@@ -119,15 +131,29 @@ body
 		opacity: 1
 		overflow: scroll
 		.contactme-text-wrapper
-			padding: 80px 100px 0 40%
+			padding: 60px 100px 0 40%
 			color: #fff
-			h2
+			h3
 				font-size: 30px
 				line-height: 1.2em
 				padding-bottom: 12px
 			p
 				font-size: 14px
 				line-height: 33px
+			.text-description
+				font-size: 40px
+				.contacts-info
+					p
+						margin: 0 0
+						font-family: $avenirNext-Demi
+			.form
+				padding-left: 0
+				padding-bottom: 50px
+				max-width: 550px
+				margin-left: 0
+				label
+					color: #fff
+
 		.contactme-empty-wrapper
 			height: 160px
 	.contactme-wrapper.active
@@ -145,6 +171,7 @@ body
 		padding: 0 50px
 		z-index: 20
 		background-color: #fff
+		opacity: .97
 		.logo
 			opacity: 1
 			transition: all .2s ease
@@ -170,7 +197,7 @@ body
 						color: #1D1D1D
 					.navLink.active
 						font-family: $avenirNext-light
-	.OverlayWrapper
+	.overlay-wrapper
 		.mainPage
 			.social
 				position: fixed
@@ -442,7 +469,9 @@ body
 						margin: 0
 				.backend-text-wrapper
 					.text-title
-						padding: 40px 20px 25px 20px
+						padding: 40px 10px 25px 10px
+						h2
+							text-align: center
 					.text-description
 						font-size: 40px
 						padding: 0 10px
@@ -493,6 +522,7 @@ body
 						padding-left: 60px
 						padding-right: 100px
 					.text-description
+						padding-left: 60px
 						a
 							color: #000
 							font-family: $avenirNext-Demi
@@ -738,22 +768,34 @@ body
 								text-align: right
 
 	.success // The form
-		color: #333
-		text-transform: uppercase
-		font-family: $avenirNext-Demi, sans-serif
-		font-size: 14px
-		position: absolute
-		top: 0
-		left: 0
-		bottom: 0
-		right: 0
-		display: none
+		color: #fff
+		font-family: $avenirNext-light, sans-serif
+		font-size: 12px
+		position: fixed
+		top: 0px
+		left: 20%
+		display: block
+		text-align: center
 		z-index: 100
-		span
+		overflow: hidden
+		height: 60px
+		width: 60%
+		background-color: #333
+		border-radius: 0 0 30px 30px
+		opacity: .9
+		padding: 10px 10px
+		transition: all .5s ease
+		transform: translateY(-70px)
+		p
 			margin: auto
-			margin-top: 40vh
+		p:first-child
+			font-size: 14px
+			font-family: $avenirNext-Demi, sans-serif
+			margin-bottom: 5px
+	.success.active
+		transform: translateY(0px)
 	.success.active ~ *
-		filter: blur(20px)
+		filter: blur(2px)
 	.form
 		width: auto
 		padding-left: 10px
@@ -846,444 +888,4 @@ body
 					background-color: #f47b50
 
 
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1600px)
-	/**/
-
-
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1400px)
-	/**/
-
-
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px)
-	/**/
-
-
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px)
-	/**/
-	body
-		.header
-			.logo
-				padding-top: 10px
-				img
-					width: 90px
-			.menu
-				margin-top: 10px
-				.menuWrapper 
-					.navigation 
-						.navLink
-							font-size: 12px
-						&:first-child
-							padding-left: 30px
-		.contactme-line
-			display: none
-			right: 0
-			transform: translateX(37%)
-			.contactme-line-wrapper
-				transform: rotate(-90deg)
-		.OverlayWrapper
-			width: auto
-    	height: auto
-			.mainPage
-				width: auto
-				-ms-flex-wrap: nowrap
-				flex-wrap: nowrap
-				overflow-x: auto
-				.social
-					right: 50px
-					.socialLink:nth-last-child(1)
-				.categories
-					height: calc(100vh - 100px)
-					width: auto;
-					margin-top: 100px
-					-ms-flex-wrap: nowrap
-					flex-wrap: nowrap
-					overflow-x: auto
-					.category
-						.categoryName
-							font-size: 24px
-							transform: none
-						min-width: 80vw
-						height: 100%
-						margin-top: auto
-						padding: 145px 20px 0 20px
-						flex-direction: column
-						border-right: 5px solid #fff
-						border-top: 1px solid #f8f8f8
-						align-items: left 
-						.keys
-							margin: auto 0 0 0
-							padding: 0 0 25px 0
-							display: flex
-							flex-wrap: nowrap
-							flex-direction: column
-							position: static
-							overflow: hidden
-					.wallpapers
-						height: calc(100vh - 100px)
-						position: fixed
-						top: auto
-						bottom: 0
-
-	.body //Page - Desgin
-		height: 100%
-		.wrapper.page-design
-			.row 
-				.img-wrapper 
-					.little-wrapper
-						display: none
-					.main-box 
-   					margin-right: 0
-	.footer-menu 
-		.menuWrapper 
-			.navLink
-				font-size: 12px
-
-		.body //Page - Consulting
-			.page-consulting 
-				.row 
-					.consul-second-img-wrapper 
-						display: none
-
-			.wrapper.page-front-end //Page - Front-End 
-				.row 
-					.img-wrapper 
-						padding-bottom: 80px
-						.little-wrapper
-							display: none
-						.main-box
-							padding-left: 0
-
-			.page-backend //Page - Backend
-				padding-bottom: 40px
-				.row 
-					.backend-second-img-wrapper 
-						display: none
-					.text-wrapper 
-						.text-description 
-							p
-								text-align: left
-					.backend-text-wrapper 
-						.text-title
-							text-align: left
-
-		.body.about	//Page - About
-			.page-about 
-				.row 
-					.about-second-img-wrapper 
-						display: none
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 767px)
-	/**/
-	body
-		.header
-			height: 70px
-		.body 
-			padding-top: 70px
-			.wrapper
-				padding-top: 15px
-				height: auto
-				padding-right: 0
-				padding-left: 0
-				.row 
-					.text-wrapper 
-						padding-bottom: 10px
-						.text-title
-							padding-top: 0
-							padding-bottom: 10px
-							font-size: 30px
-							padding-left: 60px
-						.text-description
-							padding-top: 10px
-							padding-left: 60px
-							padding-right: 60px
-							p
-								font-size: 14px
-					.img-wrapper 
-						height: 400px
-						padding-bottom: 80px
-						.main-box
-							margin-right: 0
-							padding: 0
-							padding-right: 50px
-							padding-left: 50px
-							width: auto
-							img
-								width: 100%
-						.little-wrapper
-							display: flex
-							.secondary-box
-								img
-									width: auto
-									height: 100%
-									min-width: 190px
-							.first-box 
-								max-width: 225px
-								.box-description
-									font-size: 24px
-
-			.page-consulting //Page - Consulting
-				.row 
-					.consul-img-wrapper
-						display: none
-					.consul-text-wrapper
-						.text-title
-							padding: 0px 50px 10px 50px
-						.text-description
-							padding: 10px 60px
-					.consul-second-img-wrapper 
-						display: flex
-						padding: 10px
-						padding-top: 0px
-						height: 50%
-						.little-wrapper 
-							padding: 10px 50px
-							padding-bottom: 60px
-							flex-direction: row
-							height: 50%
-							.third-box
-								padding-right: 5px
-								display: flex
-								width: 100%
-								height: auto
-								max-height: 300px
-								img
-									width: 100%
-									object-fit: cover
-									height: 100%
-							.secondary-box
-								padding-left: 5px
-								max-height: 100%
-								height: auto
-								width: 100%
-								img
-									width: 100%
-									height: 100%
-									object-fit: cover
-							.first-box
-								display: none
-								width: 100%
-								padding: 0 40px
-								.box-description
-									width: 100%
-									text-align: center
-										
-			.wrapper.page-front-end //Page - Front-End
-				.row 
-					.text-wrapper
-						.text-description
-							padding-bottom: 80px
-					.img-wrapper
-						padding-bottom: 30px
-
-			.page-backend //Page - Backend
-				.row 
-					.backend-img-wrapper
-						display: none
-					.backend-text-wrapper
-						.text-title
-							padding: 0px 60px 10px 60px
-						.text-description
-							padding: 10px 60px
-					.backend-second-img-wrapper 
-						display: flex
-						padding: 0 50px
-						height: 50%
-						.little-wrapper 
-							padding: 0 10px
-							padding-bottom: 20px
-							flex-direction: row
-							height: 50%
-							.third-box
-								padding-right: 5px
-								display: flex
-								width: 100%
-								height: auto
-								max-height: 300px
-								img
-									width: 100%
-									object-fit: cover
-									height: 100%
-							.secondary-box
-								padding-left: 5px
-								max-height: 100%
-								height: auto
-								width: 100%
-								img
-									width: 100%
-									height: 100%
-									object-fit: cover
-							.first-box
-								display: none
-								width: 100%
-								padding: 0 40px
-								.box-description
-									width: 100%
-									text-align: center
-
-		.body.about //Page - About
-			padding-top: 70px		
-			.page-about
-				.row 
-					.about-img-wrapper
-						display: none
-					.about-text-wrapper
-						.text-title
-							padding: 0px 60px 10px 60px
-						.text-description
-							padding: 10px 60px
-					.about-second-img-wrapper 
-						display: flex
-						padding: 0 50px 10px 50px
-						height: 50%
-						.little-wrapper 
-							padding: 10px
-							padding-bottom: 60px
-							flex-direction: row
-							height: 50%
-							.third-box
-								padding-right: 5px
-								display: flex
-								width: 100%
-								height: auto
-								max-height: 300px
-								img
-									width: 100%
-									object-fit: cover
-									height: 100%
-							.secondary-box
-								padding-left: 5px
-								max-height: 100%
-								height: auto
-								width: 100%
-								img
-									width: 100%
-									height: 100%
-									object-fit: cover
-							.first-box
-								display: none
-								width: 100%
-								padding: 0 40px
-								.box-description
-									width: 100%
-									text-align: center
-
-		.body.portfolio //Page - Portfolio
-			.wrapper.page-portfolio 
-				.row 
-					height: calc(100vh - 165px + 3px)
-		.form
-			padding-left: 60px
-			padding-right: 60px
-			padding-bottom: 70px
-
- 
-		.body //Page - Contacts
-			.wrapper.page-contacts
-				.row 
-					.img-wrapper
-						display: none
-					.text-wrapper
-						.text-description
-							padding-right: 70px
-							padding-bottom: 10px
-							.contacts-info
-								display: block
-								
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px)
-	/**/
-	body 
-		.header
-			.menu 
-				.menuWrapper 
-					.navigation:first-child	
-						padding-top: 0
-						.navLink		
-							padding: 2px 12.5px
-		.body 
-			.wrapper
-				.row 
-					.img-wrapper 
-						height: 100%
-						width: 100%
-						.main-box
-							padding-left: 50px
-							padding-right: 50px
-							max-width: 100%
-							img
-								height: 100%
-								width: 100%
-						.little-wrapper
-							display: none
-
-			.wrapper.page-portfolio //Page - Portfolio
-				.row 
-					.text-wrapper
-					.img-wrapper 
-						.main-box
-						.little-wrapper
-							display: flex
-
-		.body //Page - Contacts
-			.wrapper.page-contacts
-				.row 
-					.text-wrapper.contacts-text-wrapper
-						.form
-							padding-bottom: 70px
-							label
-								width: 100%
-					
-
-/* Large Devices, Tablets */
-@media only screen and (min-width : 993px)
-	/**/
-
-	body
-		.contactme-line.active
-			left: 65%
-		.contactme-line
-			left: 0
-			transform: translateX(calc(-37%))
-			transition: all 1s ease
-			.contactme-line-wrapper
-				transform: rotate(-90deg)
-				position: relative
-				.contactme-link
-					padding-left: 40px
-					padding-right: 40px
-				.emptybox
-					position: absolute
-					height: 5000px
-					width: 164px
-					background-color: #000
-					bottom: 49px
-		.OverlayWrapper
-			.mainPage
-				.social
-					left: 40px
-				.categories
-					.category
-						align-items: center
-						.keys
-						&:nth-child(1)
-							border-right: 4px solid #fff
-							border-bottom: 4px solid #fff
-						&:nth-child(2)
-							border-left: 4px solid #fff
-							border-bottom: 4px solid #fff
-						&:nth-child(3)
-							border-right: 4px solid #fff
-							border-top: 4px solid #fff
-						&:nth-child(4)
-							border-left: 4px solid #fff
-							border-top: 4px solid #fff
-
-
+@import media

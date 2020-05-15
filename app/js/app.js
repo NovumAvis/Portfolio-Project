@@ -12,6 +12,8 @@ $(window).on('load', function(){
 $(document).ready(function() {
 	
 
+
+
 // Type Image Zoom - картинка с анимацией + проверка на наличие необходимого id 
 var popupElement = document.getElementById('popup-is-here');
 if (popupElement){
@@ -20,33 +22,44 @@ if (popupElement){
 		});
 }
 
+// Маска формы для input телефона
+var formMaskElement = document.getElementById('callback');
+if (formMaskElement){
+	$("#phone-order").inputmask({
+		mask: "+7 (999) 999-99-99",
+		greedy: false,
+		clearMaskOnLostFocus: false,
+	});
+	$("#email-order").inputmask({
+		mask: "*{3,20}@*{3,20}.*{2,7}",
+		greedy: false,
+		clearMaskOnLostFocus: false
+	});
+}
 
-//анимация feetback при успешной отправки формы
+
+
+//Для Ajax формы + анимация feetback при успешной отправки формы
 $(".form").submit(function() {
-	var th = $(this);
-	$.ajax({
-	type: "GET",
-	url: 'mail.php',
-	data: th.serialize()
-	}).done(function(){ 
-		$('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+		$('.success').addClass('active');
 		setTimeout(function() {
-			$('.success').removeClass('active').fadeOut();
-			var magnificPopup = $.magnificPopup.instance; 
-			magnificPopup.close(); 
-			th.trigger("reset");
+			$('.success').removeClass('active');
+			$(document.getElementById("callback").reset());
 		}, 3000);
-	}); 
 	return false;
 }); 
  
-
+//Активация "Связаться" с добавлением заблюренного оверлея
 	$(".contactme-line").click(function(){
 		$(".contactme-wrapper").toggleClass("active");
 		$(".author-sec-wrapper").toggleClass("active");
 		$(".contactme-line").toggleClass("active");
+		$(".overlay-glass").toggleClass("overlayIt");
+		$(".overlay-wrapper").toggleClass("blurIt");
 		return false;
 	});
+
+
 
 	$(".cat-1").hover(function(){
 		$(".wall-1").toggleClass("show");
