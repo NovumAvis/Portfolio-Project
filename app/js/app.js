@@ -8,10 +8,27 @@ $(window).on('load', function(){
 });
 
 
-	// Custom JS
-$(document).ready(function() {
-	
 
+// Custom JS
+$(document).ready(function() {
+
+
+// Условие для оключения прокрутки на страницах home и portfolio
+var isHome = document.getElementById('home-page');
+var isPortfolio = document.getElementById('portfolio-page');
+if (isHome || isPortfolio){
+	$('body').css('overflow', 'hidden');
+	$('.header').toggleClass("main-header");
+
+// Mouse Wheel плагин для прокрутки колесиком мыши влево
+	$('.page-portfolio .row').mousewheel(function(e, delta) {
+		this.scrollLeft -= (delta * 0.8);
+	});
+	$('.categories').mousewheel(function(e, delta) {
+			this.scrollLeft -= (delta * 0.8);
+});
+
+}
 
 
 // Type Image Zoom - картинка с анимацией + проверка на наличие необходимого id 
@@ -21,6 +38,7 @@ if (popupElement){
 		type: 'image'
 		});
 }
+
 
 // Маска формы для input телефона
 var formMaskElement = document.getElementById('callback');
@@ -38,7 +56,6 @@ if (formMaskElement){
 }
 
 
-
 //Для Ajax формы + анимация feetback при успешной отправки формы
 $(".form").submit(function() {
 		$('.success').addClass('active');
@@ -49,6 +66,7 @@ $(".form").submit(function() {
 	return false;
 }); 
  
+
 //Активация "Связаться" с добавлением заблюренного оверлея
 	$(".contactme-line").click(function(){
 		$(".contactme-wrapper").toggleClass("active");

@@ -69,6 +69,7 @@
 
 // ------------------------------ Main style for all pages ----------------------------------
 
+
 body
 	background-color: #fff
 	height: 100%
@@ -183,6 +184,27 @@ body
 		.menu
 			margin: -12.5px -12.5px 0 auto
 			.menuWrapper
+				ul
+					padding: 0
+					margin: 0
+					display: flex
+					vertical-align: baseline
+					.menu-item
+						text-decoration: none
+						outline: 0
+						padding: 35px 12.5px
+						font-size: 14px
+						color: #707070
+						-webkit-transition: all .15s ease-out
+						transition: all .15s ease-out
+						a
+							color: #707070
+						a:hover
+							color: #1D1D1D
+					.current_page_item
+						a
+							color: #333
+							font-family: $avenirNext-Demi
 				.navigation
 					vertical-align: baseline
 					.navLink
@@ -197,6 +219,7 @@ body
 						color: #1D1D1D
 					.navLink.active
 						font-family: $avenirNext-light
+					
 	.overlay-wrapper
 		.mainPage
 			.social
@@ -219,6 +242,8 @@ body
 						max-height: 15px
 					&:nth-last-child(1)
 						padding-bottom: 55px
+			.categories::-webkit-scrollbar 
+  			display: none
 			.categories
 				width: calc(100% - 240px)
 				margin-left: auto
@@ -297,6 +322,10 @@ body
 	.main-header
 		background: none
 
+//Page - Home
+body.home
+	overflow: hidden
+
 //All styles + Page - Web Design 
 .body
 	padding-top: 80px
@@ -310,6 +339,8 @@ body
 				height: max-content
 				display: block
 				padding-bottom: 60px
+				animation: fadeIn
+				animation-duration: 0.8s
 				.text-title
 					padding-left: 50px
 					padding-top: 40px
@@ -325,6 +356,8 @@ body
 			.img-wrapper
 				display: flex
 				height: 100%
+				animation: fadeInRight
+				animation-duration: 2s
 				.main-box
 					width: 100%
 					height: 100%
@@ -368,12 +401,22 @@ body
 	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 )
 	.menuWrapper
+		ul
+			display: flex
+			padding: 0
+			margin: 0
+			.current-menu-item
+				color: #333
+				font-family: $avenirNext-Demi
+			.menu-item
+				padding-right: 18px
+				a
+					color: #1D1D1D
+					font-size: 14px
 		.navLink
 			padding-right: 15px
 			color: #1D1D1D
-			font-size: 14px
-		.navLink.active
-			font-family: $avenirNext-Bold
+			font-size: 14px 
 
 //Page - Consulting
 body
@@ -387,9 +430,13 @@ body
 				height: 100%
 				.consul-img-wrapper
 					padding: 0 30px 0 10px
+					animation: fadeInDown
+					animation-duration: 2.3s
 					.main-box
 						margin: 0
 				.consul-text-wrapper
+					animation: fadeIn
+					animation-duration: 1.2s
 					.text-title
 						padding: 40px 20px 25px 20px
 					.text-description
@@ -399,6 +446,8 @@ body
 					padding: 0 10px 0 30px
 					display: flex
 					height: 100%
+					animation: fadeInDown
+					animation-duration: 2.6s
 					.little-wrapper
 						display: flex
 						flex-direction: column
@@ -429,6 +478,8 @@ body
 			padding-right: 50px
 			.row 
 				.text-wrapper 
+					animation: fadeIn
+					animation-duration: 0.8s
 					padding-right: 10px
 					.text-title
 						text-align: right
@@ -437,6 +488,8 @@ body
 						padding-right: 0
 						text-align: right
 				.img-wrapper 
+					animation: fadeInLeft
+					animation-duration: 2s
 					.little-wrapper 
 						margin-right: 0
 						.secondary-box 
@@ -465,9 +518,13 @@ body
 				height: 100%
 				.backend-img-wrapper
 					padding: 0 10px 0 30px
+					animation:  fadeInRight
+					animation-duration: 1.7s
 					.main-box
 						margin: 0
 				.backend-text-wrapper
+					animation: fadeIn
+					animation-duration: 1.2s
 					.text-title
 						padding: 40px 10px 25px 10px
 						h2
@@ -479,6 +536,8 @@ body
 					padding: 0 30px 0 10px
 					display: flex
 					height: 100%
+					animation: fadeInLeft
+					animation-duration: 1.7s
 					.little-wrapper
 						display: flex
 						flex-direction: column
@@ -510,6 +569,8 @@ body
 			height: auto
 			will-change: transform
 			padding-right: 10px
+			.row::-webkit-scrollbar 
+  			display: none
 			.row
 				height: calc(100vh - 150px + 3px)
 				overflow-x: auto
@@ -517,6 +578,8 @@ body
 				width: auto
 				.text-wrapper
 					padding-bottom: 0
+					animation: fadeIn
+					animation-duration: 0.5s
 					.text-title
 						margin-right: 100px
 						padding-left: 60px
@@ -536,11 +599,14 @@ body
 				.big-img-wrapper
 					display: flex
 					height: 100%
+					animation: fadeIn
+					animation-duration: 0.5s
 					.main-box
 						height: 100%
 						margin: 0 5px
 						img
 							height: 100%
+							max-width: none
 					.second-box
 						display: flex
 						flex-direction: column
@@ -585,6 +651,7 @@ body
 								object-fit: cover
 								width: 70vh
 								height: 100%
+								max-width: none
 					.fourth-box
 						display: flex
 						flex-direction: column
@@ -622,6 +689,7 @@ body
 							object-fit: cover
 							width: 70vh
 							height: 100%
+							max-width: none
 					.sixth-box
 						display: flex
 						flex-direction: column
@@ -662,9 +730,13 @@ body
 				height: 100%
 				.about-img-wrapper
 					padding: 0 30px 0 10px
+					animation: fadeIn
+					animation-duration: 0.5s
 					.main-box
 						margin: 0
 				.about-text-wrapper
+					animation: fadeIn
+					animation-duration: 0.5s
 					.text-title
 						padding: 40px 20px 25px 10px
 					.text-description
@@ -723,6 +795,8 @@ body
 					padding: 0 10px 0 30px
 					display: flex
 					flex-direction: column
+					animation: fadeIn
+					animation-duration: 0.5s
 					.main-box
 						margin: 0
 						display: flex
@@ -731,6 +805,8 @@ body
 						padding-top: 30px
 						font-family: $avenirNext-Bold
 				.contacts-text-wrapper
+					animation: fadeIn
+					animation-duration: 0.5s
 					.text-title
 						padding: 40px 20px 25px 10px
 					.text-description
@@ -745,6 +821,8 @@ body
 					padding: 0 10px 0 30px
 					display: none
 					height: 100%
+					animation: fadeIn
+					animation-duration: 0.5s
 					.little-wrapper
 						display: flex
 						flex-direction: column
