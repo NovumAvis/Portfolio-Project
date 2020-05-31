@@ -165,7 +165,7 @@ body
 		position: fixed
     left: 0
     top: 0
-		height: 80px
+		height: 60px
 		width: 100%
 		display: flex
 		align-items: center
@@ -192,31 +192,32 @@ body
 					.menu-item
 						text-decoration: none
 						outline: 0
-						padding: 35px 12.5px
+						padding: 28px 12.5px
 						font-size: 14px
-						color: #707070
+						color: #808080
 						-webkit-transition: all .15s ease-out
 						transition: all .15s ease-out
 						a
-							color: #707070
+							color: #808080
 						a:hover
-							color: #1D1D1D
+							color: #111111
 					.current_page_item
 						a
 							color: #333
 							font-family: $avenirNext-Demi
 				.navigation
 					vertical-align: baseline
+					padding-top: 10px
 					.navLink
 						text-decoration: none
 						outline: 0
-						padding: 35px 12.5px
+						padding: 28px 12.5px
 						font-size: 14px
-						color: #707070
+						color: #909090
 						-webkit-transition: all .15s ease-out
 						transition: all .15s ease-out
 					.navLink:hover
-						color: #1D1D1D
+						color: #111111
 					.navLink.active
 						font-family: $avenirNext-light
 					
@@ -328,7 +329,7 @@ body.home
 
 //All styles + Page - Web Design 
 .body
-	padding-top: 80px
+	padding-top: 60px
 	.wrapper
 		height: 100%
 		padding-right: 50px
@@ -356,7 +357,7 @@ body.home
 			.img-wrapper
 				display: flex
 				height: 100%
-				animation: fadeInRight
+				animation: fadeInUp
 				animation-duration: 2s
 				.main-box
 					width: 100%
@@ -381,9 +382,10 @@ body.home
 							font-size: 30px
 							line-height: 1.2em
 					.secondary-box
+						position: absolute
+						bottom: 0
 						display: flex
-						max-height: 50%
-						width: 100%
+						max-height: 70%
 						img
 							max-width: 100%
 .footer-menu
@@ -393,30 +395,35 @@ body.home
 	left: 0
 	padding: 30px 50px
 	background: rgba(255,255,255,0)
-	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(55%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)))
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
-	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
-	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
-	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%)
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 4%, rgba(255,255,255,0.83) 35%, rgba(255,255,255,0.94) 51%, rgba(255,255,255,1) 60%)
+	background: -webkit-gradient(left top, left bottom, color-stop(4%, rgba(255,255,255,0)), color-stop(35%, rgba(255,255,255,0.83)), color-stop(51%, rgba(255,255,255,0.94)), color-stop(60%, rgba(255,255,255,1)))
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 4%, rgba(255,255,255,0.83) 35%, rgba(255,255,255,0.94) 51%, rgba(255,255,255,1) 60%)
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 4%, rgba(255,255,255,0.83) 35%, rgba(255,255,255,0.94) 51%, rgba(255,255,255,1) 60%)
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 4%, rgba(255,255,255,0.83) 35%, rgba(255,255,255,0.94) 51%, rgba(255,255,255,1) 60%)
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 4%, rgba(255,255,255,0.83) 35%, rgba(255,255,255,0.94) 51%, rgba(255,255,255,1) 60%)
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 )
 	.menuWrapper
 		ul
 			display: flex
 			padding: 0
 			margin: 0
-			.current-menu-item
-				color: #333
-				font-family: $avenirNext-Demi
 			.menu-item
-				padding-right: 18px
+				padding-right: 15px
 				a
-					color: #1D1D1D
+					color: #808080
 					font-size: 14px
+				a:hover
+					color: #111111
+			.current-menu-item
+				font-family: $avenirNext-Demi
+				a
+					color: #333
 		.navLink
 			padding-right: 15px
-			color: #1D1D1D
+			color: #808080
 			font-size: 14px 
+			&:hover
+				color: #111111
 
 //Page - Consulting
 body
@@ -493,6 +500,7 @@ body
 					.little-wrapper 
 						margin-right: 0
 						.secondary-box 
+							position: static
 							img
 								object-fit: cover
 						.first-box
@@ -502,6 +510,7 @@ body
 								line-height: 1.4em
 					.main-box 
 						padding: 0
+						width: 100%
 						img
 							min-width: 100%
 							width: 100%
@@ -573,19 +582,27 @@ body
   			display: none
 			.row
 				height: calc(100vh - 150px + 3px)
+				display: inline-flex
 				overflow-x: auto
+				overflow-y: hidden
 				flex-wrap: nowrap
-				width: auto
+				min-width: 100%
 				.text-wrapper
 					padding-bottom: 0
 					animation: fadeIn
 					animation-duration: 0.5s
+					height: 100%
+					.textwrapper-scroll
+						overflow: scroll
+						height: 100%
 					.text-title
 						margin-right: 100px
 						padding-left: 60px
 						padding-right: 100px
 					.text-description
 						padding-left: 60px
+						p
+							margin-bottom: 5px
 						a
 							color: #000
 							font-family: $avenirNext-Demi
@@ -593,9 +610,9 @@ body
 							&:hover
 								text-decoration: underline
 						.scroll-text
-							padding: 20px 0 0 170px
-							font-size: 30px
-							color: #707070
+							font-size: 10px
+							color: #aaaaaa
+							font-style: italic
 				.big-img-wrapper
 					display: flex
 					height: 100%

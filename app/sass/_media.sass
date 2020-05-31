@@ -22,17 +22,24 @@
 @media only screen and (max-width : 992px)
 	/**/
 	body
+		.main-header
+			background: #fff
 		.header
 			.logo
 				img
 					width: 90px
 			.menu
 				.menuWrapper 
+					ul
+						padding-left: 30px
+						padding-top: 10px
+						.menu-item
+							font-size: 12px
 					.navigation 
+						padding-left: 30px
 						.navLink
 							font-size: 12px
-						&:first-child
-							padding-left: 30px
+							
 		.contactme-line
 			display: none
 			right: 0
@@ -48,12 +55,17 @@
 				flex-wrap: nowrap
 				overflow-x: auto
 				.social
-					right: 50px
+					flex-direction: row
+					left: calc(50% - 60px)	
+
+					.socialLink
+						padding-bottom: 30px
 					.socialLink:nth-last-child(1)
+						padding-bottom: 30px
 				.categories
-					height: calc(100vh - 100px)
+					height: calc(100vh - 60px)
 					width: auto;
-					margin-top: 100px
+					margin-top: 60px
 					-ms-flex-wrap: nowrap
 					flex-wrap: nowrap
 					overflow-x: auto
@@ -78,7 +90,7 @@
 							position: static
 							overflow: hidden
 					.wallpapers
-						height: calc(100vh - 100px)
+						height: calc(100vh - 60px)
 						position: fixed
 						top: auto
 						bottom: 0
@@ -94,6 +106,10 @@
    					margin-right: 0
 	.footer-menu 
 		.menuWrapper 
+			ul 
+				.menu-item
+					a
+						font-size: 12px
 			.navLink
 				font-size: 12px
 	body
@@ -132,6 +148,11 @@
 				.row 
 					.about-second-img-wrapper 
 						display: none
+	body 
+		.body.portfolio 
+			.wrapper.page-portfolio 
+				.row
+					height: calc(100vh - 130px + 3px)
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px)
@@ -143,11 +164,11 @@
 
 	body
 		.header
-			height: 70px
+			height: 60px
 		.body 
-			padding-top: 70px
+			padding-top: 60px
 			.wrapper
-				padding-top: 15px
+				padding-top: 5px
 				height: auto
 				padding-right: 0
 				padding-left: 0
@@ -171,9 +192,10 @@
 						.main-box
 							margin-right: 0
 							padding: 0
-							padding-right: 50px
+							padding-right: 40px
 							padding-left: 50px
-							width: auto
+							//width: auto
+							width: 100%
 							img
 								width: 100%
 						.little-wrapper
@@ -187,16 +209,17 @@
 								max-width: 225px
 								.box-description
 									font-size: 24px
-
+	body
+		.body
 			.page-consulting //Page - Consulting
 				.row 
 					.consul-img-wrapper
 						display: none
 					.consul-text-wrapper
 						.text-title
-							padding: 0px 50px 10px 50px
+							padding: 0px 50px 10px 60px
 						.text-description
-							padding: 10px 60px
+							padding: 10px 50px 0px 60px
 					.consul-second-img-wrapper 
 						display: flex
 						padding: 10px
@@ -233,22 +256,29 @@
 								.box-description
 									width: 100%
 									text-align: center
-										
+	body
+		.body						
 			.wrapper.page-front-end //Page - Front-End
 				.row 
 					.text-wrapper
+						.text-title
+							text-align: left
+							padding-left: 10px
 						.text-description
 							padding-bottom: 80px
+							text-align: left
+							padding-left: 10px
 					.img-wrapper
 						padding-bottom: 30px
-
+	body
+		.body
 			.page-backend //Page - Backend
 				.row 
 					.backend-img-wrapper
 						display: none
 					.backend-text-wrapper
 						.text-title
-							padding: 0px 60px 10px 60px
+							padding: 10px 60px 0px 60px
 						.text-description
 							padding: 10px 60px
 					.backend-second-img-wrapper 
@@ -256,7 +286,9 @@
 						padding: 0 50px
 						height: 50%
 						.little-wrapper 
-							padding: 0 10px
+							padding-top: 0
+							padding-left: 10px
+							padding-right: 0
 							padding-bottom: 20px
 							flex-direction: row
 							height: 50%
@@ -286,14 +318,19 @@
 								.box-description
 									width: 100%
 									text-align: center
-
-		.body.about //Page - About
-			padding-top: 70px		
-			.page-about
+	body
+		.body
+			.page-about //Page - About
 				.row 
 					.about-img-wrapper
-						display: none
+						height: auto
+						padding-bottom: 40px
+						.main-box
+							padding-right: 20px
+							img
+								height: 70vh
 					.about-text-wrapper
+						padding-bottom: 80px
 						.text-title
 							padding: 0px 60px 10px 60px
 						.text-description
@@ -333,17 +370,17 @@
 								.box-description
 									width: 100%
 									text-align: center
-
+	body
 		.body.portfolio //Page - Portfolio
 			.wrapper.page-portfolio 
 				.row 
-					height: calc(100vh - 165px + 3px)
+					height: calc(100vh - 125px + 3px)
 		.form
 			padding-left: 60px
 			padding-right: 60px
 			padding-bottom: 70px
 
- 
+ 	body
 		.body //Page - Contacts
 			.wrapper.page-contacts
 				.row 
@@ -355,18 +392,31 @@
 							padding-bottom: 10px
 							.contacts-info
 								display: block
-								
+	.footer-menu 
+		padding: 20px 50px
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
 	/**/
 	body 
 		.header
+			padding: 0 20px
+			.logo
+				img
+					width: 70px
 			.menu 
 				.menuWrapper 
-					.navigation:first-child	
-						padding-top: 0
-						.navLink		
-							padding: 2px 12.5px
+					ul 
+						.menu-item
+							font-size: 10px
+							padding: 2px 4px
+						.menu-item:last-child
+							padding-right: 12.5px
+					.navigation 
+						.navLink
+							font-size: 10px
+							padding: 2px 4px
+						.navLink:last-child
+							padding-right: 12.5px
 		.body 
 			.wrapper
 				.row 
@@ -381,31 +431,122 @@
 								height: 100%
 								width: 100%
 						.little-wrapper
-							display: none
+							display: none		
+		.menuWrapper 
+			ul 
+				.menu-item
+					a
+						font-size: 10px
+			.navLink
+				font-size: 10px
+	body //Page - Design, Backend, About, Contacts
+		.body 
+			.wrapper 
+				.row 
+					.text-wrapper 
+						.text-title
+							padding-left: 28px
+						.text-description
+							padding-left: 28px
+							padding-right: 20px
+							p
+								font-size: 12px
+	body
+		.body //Page - Design
+			.wrapper.page-design
+				.row 
+					.img-wrapper 
+						.main-box
+							padding-left: 20px
+							padding-right: 20px
+	body 
+		.body
+			.page-consulting 
+				.row 
+					.consul-second-img-wrapper 
+						.little-wrapper
+							padding-left: 20px
+							padding-right: 10px 
+	body			
+		.body.frontend //Page - Frontend 
+			.wrapper.page-front-end
+				padding: 0 20px
+				.row 
+					.img-wrapper
+						.main-box 
+							img
+								height: 250px
+					.text-wrapper 
+						.text-description
+							padding-left: 10px
 
+	body 
+		.body
+			.page-backend //Page - Backend
+				.row 
+					.backend-second-img-wrapper
+						padding: 0 20px
+	body
+		.body.portfolio
 			.wrapper.page-portfolio //Page - Portfolio
 				.row 
+					height: calc(100vh - 120px + 3px)
 					.text-wrapper
+						.text-title
+							padding-left: 28px
+						.text-description
+							padding-left: 28px
 					.img-wrapper 
 						.main-box
 						.little-wrapper
 							display: flex
-
+	body 
+		.body.about //Page - About
+			.page-about 
+				.row 
+					.img-wrapper.about-img-wrapper
+						padding-right: 0
+						height: 70vh
+						.main-box
+							padding: 0 20px
+							img
+					.about-second-img-wrapper
+						display: flex
+						padding: 0 10px 0 20px
+	body
 		.body //Page - Contacts
 			.wrapper.page-contacts
 				.row 
 					.text-wrapper.contacts-text-wrapper
+						.text-description
+							padding-right: 20px
 						.form
 							padding-bottom: 70px
 							label
 								width: 100%
-					
+	.footer-menu 
+	.footer-menu 
+		padding: 20px 20px
+		.menuWrapper 
+			.navLink
+				font-size: 10px
+	body
+		.form
+			padding-left: 28px
+			padding-right: 20px
+			label
+				padding-right: 0
+			
 
 /* Large Devices, Tablets */
 @media only screen and (min-width : 993px)
 	/**/
 
 	body
+		.body
+			padding-top: 80px
+		.header
+			height: 80px
 		.contactme-line.active
 			left: 65%
 		.contactme-line
